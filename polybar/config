@@ -56,9 +56,9 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = bspwm i3
+modules-left = bspwm i3 spotify
 modules-center = 
-modules-right = filesystem xbacklight memory cpu battery temperature date powermenu
+modules-right = filesystem xbacklight memory cpu battery temperature wlan date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -204,6 +204,14 @@ inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format = <label>
+exec = python /home/xgg/.config/myScripts/spotify_polibar.py -f '{play_pause} {artist}: {song}'
+format-underline = #1db954
+
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -222,12 +230,12 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = 
+interface = wlan1 
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
-label-connected = %essid%
+label-connected = %essid% %local_ip%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
