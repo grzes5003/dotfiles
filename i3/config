@@ -228,3 +228,5 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 bindsym $mod+Shift+x exec "/home/xgg/.config/myScripts/lock.sh"
 
 exec_always --no-startup-id feh --bg-tile ~/Dokumenty/.Wallpapers/mars.png
+exec --no-startup-id i3-msg 'workspace 2; exec spotify'
+#exec_always --no-startup-id exec /home/xgg/.config/myScripts/conky_start.sh
